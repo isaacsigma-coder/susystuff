@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+nav {
+    background: #222;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+nav button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+nav button:hover {
+    background: #666;
+}
+
+.screen {
+    width: 100vw;
+    height: calc(100vh - 60px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* ---- Screen Styles ---- */
+
+/* 1 — Big centered text */
+#s1 h1 {
+    font-size: 60px;
+}
+
+/* 2 — Rainbow gradient */
+#s2 {
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, purple);
+}
+#s2 h1 {
+    color: white;
+    font-size: 55px;
+}
+
+/* 3 — Flashing text */
+#s3 h1 {
+    font-size: 60px;
+    animation: flash 1s infinite;
+}
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 4 — Bouncing text */
+#s4 {
+    position: relative;
+}
+#s4 h1 {
+    position: absolute;
+    animation: bounce 4s infinite alternate ease-in-out;
+    font-size: 50px;
+}
+@keyframes bounce {
+    0% { left: 0; top: 0; }
+    100% { left: 60%; top: 60%; }
+}
+
+/* 5 — Neon glow text */
+#s5 {
+    background: #000;
+}
+#s5 h1 {
+    color: #0ff;
+    font-size: 60px;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+}
+</style>
+
+<script>
+function showScreen(n) {
+    document.querySelectorAll('.screen').forEach(div => div.style.display = 'none');
+    document.getElementById('s' + n).style.display = 'flex';
+}
+</script>
+</head>
+
+<body onload="showScreen(1)">
+
+<nav>
+    <button onclick="showScreen(1)">1</button>
+    <button onclick="showScreen(2)">2</button>
+    <button onclick="showScreen(3)">3</button>
+    <button onclick="showScreen(4)">4</button>
+    <button onclick="showScreen(5)">5</button>
+</nav>
+
+<div id="s1" class="screen">
+    <h1>VIHHAN I. LIKES ARIA M.</h1>
+</div>
+
+<div id="s2" class="screen">
+    <h1>VIHHAN I. LIKES ARIA M.</h1>
+</div>
+
+<div id="s3" class="screen">
+    <h1>VIHHAN I. LIKES ARIA M.</h1>
+</div>
+
+<div id="s4" class="screen">
+    <h1>VIHHAN I. LIKES ARIA M.</h1>
+</div>
+
+<div id="s5" class="screen">
+    <h1>VIHHAN I. LIKES ARIA M.</h1>
+</div>
+
+</body>
+</html>
